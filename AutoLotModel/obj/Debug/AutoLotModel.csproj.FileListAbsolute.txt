@@ -1,0 +1,11 @@
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\AutoLotModel.dll.config
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\AutoLotModel.dll
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\AutoLotModel.pdb
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\EntityFramework.dll
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\EntityFramework.xml
+C:\Users\User\source\repos\AutoLotModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User\source\repos\AutoLotModel\obj\Debug\AutoLotModel.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\AutoLotModel\obj\Debug\AutoLotModel.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\AutoLotModel\obj\Debug\AutoLotModel.dll
+C:\Users\User\source\repos\AutoLotModel\obj\Debug\AutoLotModel.pdb

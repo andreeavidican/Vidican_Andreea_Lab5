@@ -1,20 +1,12 @@
 ﻿using AutoLotModel;
+using Nume_Pren_Lab5;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Vidican_Andreea_Lab5
 {
@@ -74,11 +66,14 @@ namespace Vidican_Andreea_Lab5
         {
             action = ActionState.New;
         }
-        private void btnEditO_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             action = ActionState.Edit;
+            BindingOperations.ClearBinding(firstNameTextBox, TextBox.TextProperty);
+            BindingOperations.ClearBinding(lastNameTextBox, TextBox.TextProperty);
+            SetValidationBinding();
         }
-        private void btnDeleteO_Click(object sender, RoutedEventArgs e)
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             action = ActionState.Delete;
         }
@@ -351,7 +346,34 @@ namespace Vidican_Andreea_Lab5
                              };
             customerOrdersVSource.Source = queryOrder.ToList();
         }
+        private void SetValidationBinding()
+        {
+            Binding firstNameValidationBinding = new Binding();
+            firstNameValidationBinding.Source = customerVSource;
+            firstNameValidationBinding.Path = new PropertyPath("FirstName");
+            firstNameValidationBinding.NotifyOnValidationError = true;
+            firstNameValidationBinding.Mode = BindingMode.TwoWay;
+            firstNameValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            //string required
+            firstNameValidationBinding.ValidationRules.Add(new StringNotEmpty());
+            firstNameTextBox.SetBinding(TextBox.TextProperty,
+           firstNameValidationBinding);
+            Binding lastNameValidationBinding = new Binding();
+            lastNameValidationBinding.Source = customerVSource;
+            lastNameValidationBinding.Path = new PropertyPath("LastName");
+            lastNameValidationBinding.NotifyOnValidationError = true;
+            lastNameValidationBinding.Mode = BindingMode.TwoWay;
+            lastNameValidationBinding.UpdateSourceTrigger =
+           UpdateSourceTrigger.PropertyChanged;
+            //string min length validator
+            lastNameValidationBinding.ValidationRules.Add(new
+           StringMinLengthValidator());
+            lastNameTextBox.SetBinding(TextBox.TextProperty,
+           lastNameValidationBinding); //setare binding nou
+        }
     }
+
 
      
 }
